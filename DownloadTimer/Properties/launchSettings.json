@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "DownloadTimer (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "DownloadTimer (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

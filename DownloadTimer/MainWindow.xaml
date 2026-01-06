@@ -1,0 +1,77 @@
+<Window
+    x:Class="DownloadTimer.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DownloadTimer"
+    Title="Download Timer">
+
+    <Grid>
+        <StackPanel Spacing="20" Padding="30" Width="380" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+            <TextBlock Text="Download Timer" 
+                       Style="{StaticResource TitleTextBlockStyle}" 
+                       FontSize="24" HorizontalAlignment="Center" Margin="0,10,0,10"/>
+
+            <StackPanel Spacing="5">
+                <TextBlock Text="File Size" Style="{StaticResource CaptionTextBlockStyle}" Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"/>
+                <Grid ColumnDefinitions="*, 110">
+                    <NumberBox Value="{x:Bind ViewModel.FileSize, Mode=TwoWay}" 
+                               SpinButtonPlacementMode="Hidden" 
+                               PlaceholderText="Enter size..."/>
+                    <ComboBox Grid.Column="1" SelectedItem="{x:Bind ViewModel.FileUnit, Mode=TwoWay}" 
+                              Margin="8,0,0,0" HorizontalAlignment="Stretch">
+                        <x:String>KB</x:String>
+                        <x:String>MB</x:String>
+                        <x:String>GB</x:String>
+                        <x:String>TB</x:String>
+                    </ComboBox>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel Spacing="5">
+                <TextBlock Text="Internet Speed" Style="{StaticResource CaptionTextBlockStyle}" Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"/>
+                <Grid ColumnDefinitions="*, 110">
+                    <NumberBox Value="{x:Bind ViewModel.InternetSpeed, Mode=TwoWay}" 
+                               SpinButtonPlacementMode="Hidden" 
+                               PlaceholderText="Enter speed..."/>
+                    <ComboBox Grid.Column="1" SelectedItem="{x:Bind ViewModel.SpeedUnit, Mode=TwoWay}" 
+                              Margin="8,0,0,0" HorizontalAlignment="Stretch">
+                        <x:String>Kbps</x:String>
+                        <x:String>Mbps</x:String>
+                        <x:String>Gbps</x:String>
+                    </ComboBox>
+                </Grid>
+            </StackPanel>
+
+            <Button Content="{x:Bind ViewModel.TestStatus, Mode=OneWay}" 
+                    Command="{x:Bind ViewModel.RunAutoSpeedtestCommand}" 
+                    HorizontalAlignment="Stretch" 
+                    Style="{StaticResource AccentButtonStyle}" 
+                    Height="38" CornerRadius="4"/>
+
+            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" 
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" 
+                    BorderThickness="1" CornerRadius="8" Padding="15">
+                <StackPanel Spacing="2">
+                    <TextBlock Text="ESTIMATED TIME" HorizontalAlignment="Center" 
+                               FontSize="10" FontWeight="SemiBold" 
+                               Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"/>
+                    <TextBlock Text="{x:Bind ViewModel.ResultTime, Mode=OneWay}" 
+                               FontSize="36" FontWeight="Bold" 
+                               Foreground="{ThemeResource AccentFillColorDefaultBrush}" 
+                               HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+
+            <ProgressRing IsActive="{x:Bind ViewModel.IsTesting, Mode=OneWay}" Width="24" Height="24"/>
+        </StackPanel>
+
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="12" Spacing="2">
+            <HyperlinkButton Content="GitHub: @DmrGnc" 
+                             FontSize="10" Padding="0"
+                             NavigateUri="https://github.com/yourusername"/>
+            <TextBlock Text="Powered by Speedtest by Ookla®" 
+                       FontSize="9" Opacity="0.6" HorizontalAlignment="Right"/>
+        </StackPanel>
+    </Grid>
+</Window>
