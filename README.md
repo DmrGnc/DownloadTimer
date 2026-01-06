@@ -6,7 +6,7 @@ A modern, lightweight, and user-friendly download time calculator built with **W
 
 ## ✨ Features
 
-- **Modern UI:** Designed with Windows 11 Fluent Design (Mica material and rounded corners).
+- **Modern UI:** Designed with Windows 11 Fluent Design.
 - **Speedtest Integration:** Automatically fetch your real-time internet speed using **Speedtest by Ookla® CLI**.
 - **Flexible Units:** Support for various file sizes (KB, MB, GB, TB) and connection speeds (Kbps, Mbps, Gbps).
 - **Fixed & Compact:** A perfectly sized window that doesn't clutter your desktop.
@@ -23,7 +23,7 @@ A modern, lightweight, and user-friendly download time calculator built with **W
 Since this app is self-signed, you might need to install the certificate to run the `.msix` installer:
 
 1. Download the latest `.msix` from the [Releases](https://github.com/DmrGnc/DownloadTimer/releases) section.
-2. Right-click the `.cer` file (if provided) and select **Install Certificate**.
+2. Right-click the `.cer` file and select **Install Certificate**.
 3. Choose **Local Machine** and place it in the **Trusted People** store.
 4. Double-click the `.msix` file to install the app.
 
