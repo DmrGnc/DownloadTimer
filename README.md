@@ -1,5 +1,7 @@
 # Download Timer 🚀
 
+Made with Gemini 3
+
 A modern, lightweight, and user-friendly download time calculator built with **WinUI 3**. It helps you estimate how long a file will take to download based on your internet speed.
 
 
